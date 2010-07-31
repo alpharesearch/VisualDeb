@@ -1,4 +1,4 @@
-/* config.vala
+/**
  *
  * Copyright (C) 2010  Markus Schulz
  *
@@ -18,7 +18,7 @@
  *
  * Author:
  * 	Markus Schulz <schulz@alpharesearch.de>
- */
+ **/
 
 [CCode (cprefix = "", lower_case_cprefix = "", cheader_filename = "config.h")]
 namespace Config {

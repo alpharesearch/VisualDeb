@@ -18,3 +18,4 @@ stamp-h1
 /src/.deps/
 /src/visualdeb
 /src/*.o
+*.tar.gz

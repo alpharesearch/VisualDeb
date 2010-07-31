@@ -1,5 +1,4 @@
-/* config.vala
- *
+/**
  * Copyright (C) 2010  Markus Schulz
  *
  * This library is free software; you can redistribute it and/or
@@ -18,7 +17,7 @@
  *
  * Author:
  * 	Markus Schulz <schulz@alpharesearch.de>
- */
+ **/
 
 using Config;
 using GLib;
