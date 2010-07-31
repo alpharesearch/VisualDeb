@@ -1,8 +1,40 @@
+/* config.vala
+ *
+ * Copyright (C) 2010  Markus Schulz
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA
+ *
+ * Author:
+ * 	Markus Schulz <schulz@alpharesearch.de>
+ */
+
+using Config;
+using GLib;
 using Gtk;
 
 public class TextFileViewer : Window {
 
     private TextView text_view;
+    static string basedir;
+    static bool version;
+    
+    const OptionEntry[] options = {
+		{ "basedir", 'b', 0, OptionArg.FILENAME, ref basedir, "Base source directory", "DIRECTORY" },
+		{ "version", 0, 0, OptionArg.NONE, ref version, "Display version number", null },
+		{ null }
+	};
 
     public TextFileViewer () {
         this.title = "Text File Viewer";
@@ -51,6 +83,26 @@ public class TextFileViewer : Window {
     }
 
     public static int main (string[] args) {
+        try {
+			var opt_context = new OptionContext ("- VisualDeb");
+			opt_context.set_help_enabled (true);
+			opt_context.add_main_entries (options, null);
+			opt_context.parse (ref args);
+		} catch (OptionError e) {
+			stdout.printf ("%s\n", e.message);
+			stdout.printf ("Run '%s --help' to see a full list of available command line options.\n", args[0]);
+			return 1;
+		}
+		
+		if (version) {
+			stdout.printf ("VisualDeb %s\n", Config.PACKAGE_VERSION);
+			stdout.printf ("\n\nCopyright (C) 2000-2010\n");
+            stdout.printf ("This is free software; see the source for copying conditions.  There is NO\n");
+            stdout.printf ("warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n");
+            stdout.printf ("Written by Markus Schulz <schulz@alpharesearch.de>\n");
+			return 0;
+		}
+      
         Gtk.init (ref args);
 
         var window = new TextFileViewer ();
