@@ -1,4 +1,4 @@
-AC_INIT([screenshot-editor], [0.1], [bug-report@address])
+AC_INIT([visualdeb], [0.0.1], [bug-report@address])
 AM_INIT_AUTOMAKE([-Wall -Werror])
 AM_PROG_VALAC([0.7.0])
 AC_PROG_CC
