@@ -9,7 +9,7 @@
 #include <string.h>
 #include <glib/gstdio.h>
 #include <stdio.h>
-#include <../config.h>
+#include <config.h>
 
 
 #define TYPE_TEXT_FILE_VIEWER (text_file_viewer_get_type ())
@@ -211,7 +211,7 @@ gint text_file_viewer_main (char** args, int args_length1) {
 	}
 	if (text_file_viewer_version) {
 		fprintf (stdout, "VisualDeb %s\n", PACKAGE_VERSION);
-		fprintf (stdout, "\n\nCopyright (C) 2000-2010\n");
+		fprintf (stdout, "\n\nCopyright (C) 2010\n");
 		fprintf (stdout, "This is free software; see the source for copying conditions.  There i" \
 "s NO\n");
 		fprintf (stdout, "warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PUR" \
@@ -259,21 +259,21 @@ static void text_file_viewer_finalize (GObject* obj) {
 
 
 /**
+ * VisualDeb - Integrated Packaging Environment for Debian
  * Copyright (C) 2010  Markus Schulz
  *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version.
-
- * This library is distributed in the hope that it will be useful,
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
-
- * You should have received a copy of the GNU Lesser General Public
- * License along with this library; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * Author:
  * 	Markus Schulz <schulz@alpharesearch.de>
