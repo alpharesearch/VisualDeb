@@ -23,6 +23,31 @@ using Config;
 using GLib;
 using Gtk;
 
+namespace Foo {
+    public class MyBar {
+
+        [CCode (instance_pos = -1)]
+        public void on_button1_clicked (Button source) {
+            source.label = "Thank you!";
+        }
+
+        [CCode (instance_pos = -1)]
+        public void on_button2_clicked (Button source) {
+            source.label = "Thanks!";
+        }
+    }
+}
+
+
+public void on_button1_clicked (Button source) {
+    source.label = "Thank you!";
+}
+
+public void on_button2_clicked (Button source) {
+    source.label = "Thanks!";
+}
+
+
 public class TextFileViewer : Window {
 
     private TextView text_view;
@@ -80,7 +105,7 @@ public class TextFileViewer : Window {
             stderr.printf ("Error: %s\n", e.message);
         }
     }
-
+    
     public static int main (string[] args) {
         try {
 			var opt_context = new OptionContext ("- VisualDeb");
@@ -101,14 +126,24 @@ public class TextFileViewer : Window {
             stdout.printf ("Written by Markus Schulz <schulz@alpharesearch.de>\n");
 			return 0;
 		}
-      
-        Gtk.init (ref args);
+		Gtk.init (ref args);
 
-        var window = new TextFileViewer ();
-        window.destroy.connect (Gtk.main_quit);
-        window.show_all ();
-
-        Gtk.main ();
+		try {
+			var builder = new Builder ();
+			builder.add_from_file ("visualdeb.glade");
+			//builder.connect_signals (null);
+			
+			var object = new Foo.MyBar ();
+            builder.connect_signals (object);
+			
+			var window = builder.get_object ("window") as Window;
+			window.show_all ();
+			
+			Gtk.main ();
+			} catch (Error e) {
+			stderr.printf ("Could not load UI: %s\n", e.message);
+			return 1;
+		}
         return 0;
     }
 }
