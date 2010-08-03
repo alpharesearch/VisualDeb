@@ -12,6 +12,7 @@ bin_PROGRAMS = \
 
 visualdeb_SOURCES = \
 	visualdeb.vala \
+	signals.vala \
 	$(NULL)
 	
 visualdeb_LDFLAGS = \
