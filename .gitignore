@@ -22,4 +22,9 @@ stamp-h1
 /src/visualdeb.1
 /src/*.o
 /src/*.c
+/tests/.deps/
+/tests/test_visualdeb
+/tests/test_visualdeb_vala.stamp
+/tests/*.o
+/tests/*.c
 *.tar.gz
