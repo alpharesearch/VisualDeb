@@ -170,17 +170,11 @@
                   <object class="GtkTreeView" id="treeview1">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="model">treestore1</property>
-                    <child>
-                      <object class="GtkTreeViewColumn" id="treeviewcolumn1">
-                        <property name="title">column</property>
-                      </object>
-                    </child>
+                    <signal name="row_activated" handler="on_button1_clicked"/>
                   </object>
                 </child>
               </object>
               <packing>
-                <property name="expand">False</property>
                 <property name="position">0</property>
               </packing>
             </child>
@@ -292,13 +286,5 @@
         </child>
       </object>
     </child>
-  </object>
-  <object class="GtkTreeStore" id="treestore1">
-    <columns>
-      <!-- column-name gchararray1 -->
-      <column type="gchararray"/>
-      <!-- column-name gchararray2 -->
-      <column type="gchararray"/>
-    </columns>
   </object>
 </interface>

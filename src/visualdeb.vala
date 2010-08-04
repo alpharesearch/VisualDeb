@@ -103,17 +103,28 @@ public class TextFileViewer : Window {
 		}
 		Gtk.init (ref args);
 
+
+
+		var sample1 = new ProjectTreeView ();
+
+
 		try {
 			var builder = new Builder ();
 			builder.add_from_file ("visualdeb.glade");
 			//builder.connect_signals (null);
-
+builder.
 			var object = new Foo.MyBar ();
 			builder.connect_signals (object);
 
 			var window = builder.get_object ("window") as Window;
-			window.show_all ();
+			
+			var treeview1 = builder.get_object ("treeview1") as TreeView;
+			treeview1.set_model (sample1.Store);
+			treeview1.insert_column_with_attributes (-1, "Product", new CellRendererText (), "text", 0, null);
+			treeview1.insert_column_with_attributes (-1, "Price", new CellRendererText (), "text", 1, null);
+			treeview1.expand_all ();
 
+			window.show_all ();
 			Gtk.main ();
 			} catch (Error e) {
 			stderr.printf ("Could not load UI: %s\n", e.message);
@@ -122,3 +133,46 @@ public class TextFileViewer : Window {
 		return 0;
 	}
 }
+
+public class ProjectTreeView {
+
+	public TreeStore Store;
+	
+	public ProjectTreeView () {
+		setup_treeview ();
+	}
+
+	private void setup_treeview () {
+		var store = new TreeStore (2, typeof (string), typeof (string));
+		TreeIter root;
+		TreeIter category_iter;
+		TreeIter product_iter;
+		
+		store.append (out root, null);
+		store.set (root, 0, "All Products", -1);
+
+		store.append (out category_iter, root);
+		store.set (category_iter, 0, "Books", -1);
+
+		store.append (out product_iter, category_iter);
+		store.set (product_iter, 0, "Moby Dick", 1, "$10.36", -1);
+		store.append (out product_iter, category_iter);
+		store.set (product_iter, 0, "Heart of Darkness", 1, "$4.99", -1);
+		store.append (out product_iter, category_iter);
+		store.set (product_iter, 0, "Ulysses", 1, "$26.09", -1);
+		store.append (out product_iter, category_iter);
+		store.set (product_iter, 0, "Effective Vala", 1, "$38.99", -1);
+
+		store.append (out category_iter, root);
+		store.set (category_iter, 0, "Films", -1);
+
+		store.append (out product_iter, category_iter);
+		store.set (product_iter, 0, "Amores Perros", 1, "$7.99", -1);
+		store.append (out product_iter, category_iter);
+		store.set (product_iter, 0, "Twin Peaks", 1, "$14.99", -1);
+		store.append (out product_iter, category_iter);
+		store.set (product_iter, 0, "Vertigo", 1, "$20.49", -1);
+		Store = store;
+	}
+}
+

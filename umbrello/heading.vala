@@ -15,7 +15,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * This file was generated on %date% at %time%
+ * This file was generated with Umbrello on:
+ * %date% at %time%
  *
  * Author:
  * 	Markus Schulz <schulz@alpharesearch.de>

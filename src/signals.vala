@@ -37,7 +37,7 @@ namespace Foo {
 }
 
 
-public void on_button1_clicked (Button source) {
+public void on_button1_clicked (Widget source) {
     source.label = "Thank you!";
 }
 
