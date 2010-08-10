@@ -2,6 +2,10 @@
 *.o
 *.c
 *.stamp
+*.deps
+*.libs
+*.lo
+*.la
 COPYING
 INSTALL
 Makefile
@@ -20,8 +24,8 @@ depcomp
 install-sh
 missing
 stamp-h1
-/src/.deps/
+libtool
+ltmain.sh
 /src/visualdeb
 /src/visualdeb.1
-/tests/.deps/
 /tests/test_visualdeb

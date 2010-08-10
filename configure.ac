@@ -2,6 +2,8 @@ AC_INIT([visualdeb], [0.0.1], [bug-report@address])
 AM_INIT_AUTOMAKE([-Wall -Werror])
 AM_PROG_VALAC([0.7.0])
 AC_PROG_CC
+LT_INIT([shared])
+LT_PREREQ([2.2.6])
 AC_CONFIG_HEADERS([config.h])
 
 AC_CHECK_PROG([HELP2MAN], [help2man], [help2man])
@@ -21,5 +23,5 @@ PKG_CHECK_MODULES(GOOCANVAS, goocanvas >= $GOOCANVAS_REQUIRED)
 AC_SUBST(GOOCANVAS_CFLAGS)
 AC_SUBST(GOOCANVAS_LIBS)
 
-AC_CONFIG_FILES([Makefile src/Makefile tests/Makefile])
+AC_CONFIG_FILES([Makefile src/Makefile src/VisualDebFiles/Makefile tests/Makefile])
 AC_OUTPUT
