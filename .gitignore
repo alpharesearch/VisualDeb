@@ -1,3 +1,7 @@
+*.tar.gz
+*.o
+*.c
+*.stamp
 COPYING
 INSTALL
 Makefile
@@ -18,13 +22,6 @@ missing
 stamp-h1
 /src/.deps/
 /src/visualdeb
-/src/visualdeb_vala.stamp
 /src/visualdeb.1
-/src/*.o
-/src/*.c
 /tests/.deps/
 /tests/test_visualdeb
-/tests/test_visualdeb_vala.stamp
-/tests/*.o
-/tests/*.c
-*.tar.gz

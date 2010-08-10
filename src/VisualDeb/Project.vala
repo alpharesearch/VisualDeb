@@ -1,6 +1,6 @@
 /**
  * VisualDeb - Integrated Packaging Environment for Debian
- * Copyright (C) 2010  Markus Schulz
+ * VisualDeb/Project.vala - Copyright (C) 2010  Markus Schulz
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,32 +15,41 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
+ * This file was generated on Mon Aug 9 2010 at 20:16:25
+ *
  * Author:
  * 	Markus Schulz <schulz@alpharesearch.de>
  **/
 
-using Gtk;
+using GLib;
 
-namespace Foo {
-    public class MyBar {
+using VisualDebFiles;
 
-        [CCode (instance_pos = -1)]
-        public void on_button1_clicked (Button source) {
-            source.label = "Thank you!";
-        }
+namespace VisualDeb
+{
 
-        [CCode (instance_pos = -1)]
-        public void on_button2_clicked (Button source) {
-            source.label = "Thanks!";
-        }
-    }
-}
+	public class Project : Object
+	{
+
+		//region Compositions
+
+		public DebianFiles DebianFilesUsed
+		{
+			get
+			{
+				return m_DebianFilesUsed;
+			}
+			set
+			{
+				m_DebianFilesUsed = value;
+			}
+		}
+		private DebianFiles m_DebianFilesUsed;
 
 
-public void on_button1_clicked (Button source) {
-    source.label = "Thank you!";
-}
+		//endregion
 
-public void on_button2_clicked (Button source) {
-    source.label = "Thanks!";
-}
+	}
+
+}  // end of namespace VisualDeb
+

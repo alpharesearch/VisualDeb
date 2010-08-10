@@ -22,6 +22,7 @@
 using Config;
 using GLib;
 using Gtk;
+using VisualDeb;
 
 public class TextFileViewer : Window {
 
@@ -109,10 +110,11 @@ public class TextFileViewer : Window {
 
 
 		try {
+			var myproject = new Project ();
 			var builder = new Builder ();
 			builder.add_from_file ("visualdeb.glade");
 			//builder.connect_signals (null);
-builder.
+
 			var object = new Foo.MyBar ();
 			builder.connect_signals (object);
 
