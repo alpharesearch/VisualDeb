@@ -4,7 +4,7 @@ AM_CPPFLAGS = \
 	$(GLIB_CFLAGS) \
 	$(GTK_CFLAGS) \
 	$(GOOCANVAS_CFLAGS) \
-	-I ./VisualDebFiles/ \
+	-I $(srcdir)/VisualDebFiles/ \
 	$(NULL)
 
 bin_PROGRAMS = \
@@ -24,7 +24,7 @@ visualdeb_LDFLAGS = \
 	$(GOOCANVAS_CFLAGS) \
 	-I. \
 	-I.. \
-	./VisualDebFiles/DebianFiles.c \
+	$(srcdir)/VisualDebFiles/DebianFiles.c \
 	-Wl,--export-dynamic \
 	$(NULL)
 

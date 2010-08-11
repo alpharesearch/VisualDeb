@@ -6,16 +6,21 @@ AM_CPPFLAGS = \
 	$(GOOCANVAS_CFLAGS) \
 	$(NULL)
 
-BUILT_SOURCES = DebianFiles.vala.stamp
+BUILT_SOURCES = DebianFiles.vapi
 
 lib_LTLIBRARIES = \
 	libcontrol.la \
-	libdebianfiles.la \
 	$(NULL)
 
 libcontrol_la_SOURCES = \
-	../VisualDebFiles/Control.vala \
+	Control.vala \
 	DebianFiles.vapi \
+	$(NULL)
+
+controlincludedir = $(includedir)
+
+controlinclude_HEADERS = \
+	DebianFiles.h \
 	$(NULL)
 	
 libcontrol_la_LDFLAGS = \
@@ -31,19 +36,14 @@ libcontrol_la_LIBADD = \
 	$(GTK_LIBS) \
 	$(GOOCANVAS_LIBS) \
 	$(NULL)
-
-libdebianfiles_la_VALASOURCES = \
-	../VisualDebFiles/DebianFiles.vala \
-	$(NULL)
-
-libdebianfiles_la_SOURCES = \
-	DebianFiles.vala.stamp \
-	$(libdebianfiles_la_VALASOURCES:.vala=.c) \
-	$(NULL)
 	
-DebianFiles.vapi DebianFiles.vala.stamp: $(libdebianfiles_la_VALASOURCES)
-	$(VALA_V)$(VALAC) $(COVERAGE_VALAFLAGS) $(VALAFLAGS) -C -H DebianFiles.h --library DebianFiles $^
+DebianFiles.vapi : $(libdebianfiles_la_VALASOURCES)
+	$(VALA_V)$(VALAC) $(COVERAGE_VALAFLAGS) $(VALAFLAGS) -C -H DebianFiles.h --library DebianFiles DebianFiles.vala$^
 	@touch $@
+
+EXTRA_DIST = \
+	 DebianFiles.c \
+	$(NULL)
 	
 MAINTAINERCLEANFILES = \
 	DebianFiles.vapi \
