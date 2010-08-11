@@ -48,9 +48,10 @@ namespace VisualDebFiles
 */
 		//endregion
 		
-		public virtual void hello ()
+		public virtual bool Test_Function ()
 		{
-			stdout.printf ("Hello virtual world!\n");
+			stdout.printf ("VisualDebFiles.DebianFiles TEST OK\n");
+			return true;
 		}
 
 	}

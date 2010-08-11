@@ -22,25 +22,32 @@
 using Config;
 using GLib;
 using Gtk;
+using VisualDebFiles;
 
-void add_foo_tests ()
+void add_plugin_tests ()
 {
-  Test.add_func ("/vala/test", () => {
-      assert ("foo" + "bar" == "foobar");
-    }
-  );
+  Test.add_func ("/VisualDebFiles/Copyright", () => {
+		var registrar = new PluginRegistrar<DebianFiles> ("libcopyright");
+		registrar.load ();
+		var plugin = registrar.new_object ();
+		bool testfunc =  plugin.Test_Function ();
+		assert (testfunc);
+		}
+	);
+  Test.add_func ("/VisualDebFiles/Control", () => {
+		var registrar = new PluginRegistrar<DebianFiles> ("libcontrol");
+		registrar.load ();
+		var plugin = registrar.new_object ();
+		bool testfunc = plugin.Test_Function ();
+		assert (testfunc);
+		}
+	);
 }
  
-void main (string[] args)
+int main (string[] args)
 {
-  Test.init(ref args);
- 
- Test.add_func ("/vala/test", () => {
-      assert ("foo" + "bar" == "foobar");
-    }
-  );
- 
-  add_foo_tests ();
- 
-  Test.run ();
+	Test.init(ref args);
+	add_plugin_tests ();
+	Test.run ();
+	return 0;
 }

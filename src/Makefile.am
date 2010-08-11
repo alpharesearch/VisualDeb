@@ -12,10 +12,10 @@ bin_PROGRAMS = \
 	$(NULL)
 
 visualdeb_SOURCES = \
-	visualdeb.vala \
-	PluginRegistrar.vala \
-	signals.vala \
-	./VisualDebFiles/DebianFiles.vapi \
+	$(srcdir)/visualdeb.vala \
+	$(srcdir)/PluginRegistrar.vala \
+	$(srcdir)/signals.vala \
+	$(srcdir)/VisualDebFiles/DebianFiles.vapi \
 	$(NULL)
 	
 visualdeb_LDFLAGS = \

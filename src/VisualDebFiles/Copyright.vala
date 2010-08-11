@@ -29,8 +29,17 @@ namespace VisualDebFiles
 
 	public class Copyright : DebianFiles
 	{
-
+		public override bool Test_Function ()
+		{
+			stdout.printf ("DebianFiles.Copyright TEST OK\n");
+			return true;
+		}
 	}
 
 }  // end of namespace VisualDebFiles
 
+//[ModuleInit]
+public Type register_plugin (TypeModule module) {
+    // types are registered automatically
+    return typeof (VisualDebFiles.Copyright);
+}

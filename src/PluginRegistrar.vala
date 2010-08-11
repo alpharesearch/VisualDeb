@@ -22,47 +22,48 @@
 using GLib;
 using VisualDebFiles;
 
+
 public class PluginRegistrar<T> : TypeModule {
 
-    public string path { get; private set; }
+	public string path { get; private set; }
 
-    private Type type;
-    private Module module;
-    private bool loaded = false;
+	private Type type;
+	private Module module;
+	private bool loaded = false;
 
-    private delegate Type RegisterPluginFunction (TypeModule m);
+	private delegate Type RegisterPluginFunction (TypeModule m);
 
-    public PluginRegistrar (string name) {
-        assert (Module.supported ());
-        this.path = Module.build_path ("/home/markus/VisualDeb/src/VisualDebFiles/.libs", name);
-    }
+	public PluginRegistrar (string name) {
+		assert (Module.supported ());
+		this.path = Module.build_path ("/home/markus/VisualDeb/src/VisualDebFiles/.libs", name);
+	}
 
-    public override bool load () {
-        stdout.printf ("Loading plugin with path: '%s'\n", path);
-        if (loaded)
-            return true;
+	public override bool load () {
+		stdout.printf ("Loading plugin with path: '%s'\n", path);
+		if (loaded)
+			return true;
 
-        module = Module.open (path, ModuleFlags.BIND_LAZY);
-        if (module == null) {
-            return false;
-        }
+		module = Module.open (path, ModuleFlags.BIND_LAZY);
+		if (module == null) {
+			return false;
+		}
 
-        stdout.printf ("Loaded module: '%s'\n", module.name ());
+		stdout.printf ("Loaded module: '%s'\n", module.name ());
 
-        void* function;
-        module.symbol ("register_plugin", out function);
-        RegisterPluginFunction register_plugin = (RegisterPluginFunction) function;
+		void* function;
+		module.symbol ("register_plugin", out function);
+		RegisterPluginFunction register_plugin = (RegisterPluginFunction) function;
 
-        type = register_plugin (this);
-        stdout.printf ("Plugin type: %s\n\n", type.name ());
-        loaded = true;
-        return true;
-    }
-    public override void unload () {
-        stdout.printf ("Should be unloading plugin with path '%s'\n", path);
-    }
+		type = register_plugin (this);
+		stdout.printf ("Plugin type: %s\n\n", type.name ());
+		loaded = true;
+		return true;
+	}
+	public override void unload () {
+		stdout.printf ("Should be unloading plugin with path '%s'\n", path);
+	}
 
-    public T new_object () {
-        return Object.new (type);
-    }
+	public T new_object () {
+		return Object.new (type);
+	}
 }

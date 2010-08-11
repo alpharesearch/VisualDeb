@@ -104,11 +104,11 @@ public class TextFileViewer : Window {
 		}
 		Gtk.init (ref args);
 
-		var registrar = new PluginRegistrar<DebianFiles> ("libcontrol");
+		var registrar = new PluginRegistrar<DebianFiles> ("libcopyright");
 		registrar.load ();
 
 		var plugin = registrar.new_object ();
-		plugin.hello ();
+		plugin.Test_Function ();
 
 		var sample1 = new ProjectTreeView ();
 

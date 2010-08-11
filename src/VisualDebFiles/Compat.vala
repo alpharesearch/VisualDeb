@@ -34,3 +34,7 @@ namespace VisualDebFiles
 
 }  // end of namespace VisualDebFiles
 
+public Type register_plugin (TypeModule module) {
+    // types are registered automatically
+    return typeof (VisualDebFiles.Compat);
+}
