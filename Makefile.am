@@ -5,7 +5,7 @@ EXTRA_DIST = \
 	$(NULL)
 
 SUBDIRS = \
+	./src/VisualDebFiles/ \
 	./src \
 	./tests \
-	./src/VisualDebFiles/ \
 	$(NULL)

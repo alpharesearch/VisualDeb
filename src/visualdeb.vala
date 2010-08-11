@@ -22,7 +22,7 @@
 using Config;
 using GLib;
 using Gtk;
-using VisualDeb;
+using VisualDebFiles;
 
 public class TextFileViewer : Window {
 
@@ -104,13 +104,17 @@ public class TextFileViewer : Window {
 		}
 		Gtk.init (ref args);
 
+		var registrar = new PluginRegistrar<DebianFiles> ("libcontrol");
+		registrar.load ();
 
+		var plugin = registrar.new_object ();
+		plugin.hello ();
 
 		var sample1 = new ProjectTreeView ();
 
 
 		try {
-			var myproject = new Project ();
+			//var myproject = new Project ();
 			var builder = new Builder ();
 			builder.add_from_file ("visualdeb.glade");
 			//builder.connect_signals (null);

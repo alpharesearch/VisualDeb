@@ -1,6 +1,7 @@
 *.tar.gz
 *.o
 *.c
+*.h
 *.stamp
 *.deps
 *.libs
@@ -28,4 +29,5 @@ libtool
 ltmain.sh
 /src/visualdeb
 /src/visualdeb.1
+/src/VisualDebFiles/DebianFiles.vapi
 /tests/test_visualdeb

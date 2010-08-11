@@ -216,9 +216,17 @@ namespace VisualDebFiles
 
 
 		//endregion
-
+		public override void hello ()
+		{
+			stdout.printf ("Hello override world!\n");
+		}
 
 	}
 
 }  // end of namespace VisualDebFiles
 
+[ModuleInit]
+public Type register_plugin (TypeModule module) {
+    // types are registered automatically
+    return typeof (VisualDebFiles.Control);
+}

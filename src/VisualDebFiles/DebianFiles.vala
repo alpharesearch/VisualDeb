@@ -23,7 +23,7 @@
 
 using GLib;
 
-using VisualDebUtilities;
+//using VisualDebUtilities;
 
 namespace VisualDebFiles
 {
@@ -32,7 +32,7 @@ namespace VisualDebFiles
 	{
 
 		//region Compositions
-
+/*
 		public DebianDocu DenianDocuUsed
 		{
 			get
@@ -45,9 +45,13 @@ namespace VisualDebFiles
 			}
 		}
 		private DebianDocu m_DenianDocuUsed;
-
-
+*/
 		//endregion
+		
+		public virtual void hello ()
+		{
+			stdout.printf ("Hello virtual world!\n");
+		}
 
 	}
 
