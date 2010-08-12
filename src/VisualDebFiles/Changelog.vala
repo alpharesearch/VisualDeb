@@ -34,7 +34,7 @@ namespace VisualDebFiles
 
 }  // end of namespace VisualDebFiles
 
-[ModuleInit]
+//[ModuleInit]
 public Type register_plugin (TypeModule module) {
     // types are registered automatically
     return typeof (VisualDebFiles.Changelog);

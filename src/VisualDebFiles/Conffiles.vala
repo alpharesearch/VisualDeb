@@ -29,7 +29,11 @@ namespace VisualDebFiles
 
 	public class Conffiles : DebianFiles
 	{
-
+		public override bool Test_Function ()
+		{
+			stdout.printf ("DebianFiles.Conffiles TEST OK\n");
+			return true;
+		}
 	}
 
 }  // end of namespace VisualDebFiles

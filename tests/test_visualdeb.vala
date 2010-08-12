@@ -42,6 +42,14 @@ void add_plugin_tests ()
 		assert (testfunc);
 		}
 	);
+  Test.add_func ("/VisualDebFiles/Conffiles", () => {
+		var registrar = new PluginRegistrar<DebianFiles> ("libconffiles");
+		registrar.load ();
+		var plugin = registrar.new_object ();
+		bool testfunc = plugin.Test_Function ();
+		assert (testfunc);
+		}
+	);
 }
  
 int main (string[] args)

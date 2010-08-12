@@ -35,7 +35,7 @@ public class PluginRegistrar<T> : TypeModule {
 
 	public PluginRegistrar (string name) {
 		assert (Module.supported ());
-		this.path = Module.build_path ("/home/markus/VisualDeb/src/VisualDebFiles/.libs", name);
+		this.path = Module.build_path (Environment.get_variable ("VISUALDEPFL"), name); // export VISUALDEPFL=/home/markus/VisualDeb/src/VisualDebFiles/.libs
 	}
 
 	public override bool load () {

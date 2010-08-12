@@ -8,5 +8,4 @@ http://alpharesearch.github.com/VisualDeb/
 
 Hacking -
 
-I used this command on my Ubuntu 10.04 PC to get the latest Vala Version from the Vala Team:
-sudo add-apt-repository ppa:vala-team
+export VISUALDEPFL= VisualDeb/src/VisualDebFiles/.libs

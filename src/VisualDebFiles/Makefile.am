@@ -38,6 +38,7 @@ MAINTAINERCLEANFILES = \
 lib_LTLIBRARIES = \
 	libcontrol.la \
 	libcopyright.la \
+	libconffiles.la \
 	$(NULL)
 	
 libcontrol_la_SOURCES = \
@@ -77,4 +78,24 @@ libcopyright_la_LIBADD = \
 	$(GTK_LIBS) \
 	$(GOOCANVAS_LIBS) \
 	$(NULL)
+	
+libconffiles_la_SOURCES = \
+	Conffiles.vala \
+	DebianFiles.vapi \
+	$(NULL)
+
+libconffiles_la_LDFLAGS = \
+	-shared \
+	-fPIC \
+	$(NULL)
+
+libconffiles_la_VALAFLAGS = \
+	$(NULL)
+
+libconffiles_la_LIBADD = \
+	$(GLIB_LIBS) \
+	$(GTK_LIBS) \
+	$(GOOCANVAS_LIBS) \
+	$(NULL)
+
 	
