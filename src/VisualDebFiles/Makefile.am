@@ -43,6 +43,7 @@ lib_LTLIBRARIES = \
 	
 libcontrol_la_SOURCES = \
 	Control.vala \
+	../VisualDebUtilities/DebianDocu.vala \
 	DebianFiles.vapi \
 	$(NULL)
 

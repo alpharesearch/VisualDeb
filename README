@@ -8,4 +8,4 @@ http://alpharesearch.github.com/VisualDeb/
 
 Hacking -
 
-export VISUALDEPFL= VisualDeb/src/VisualDebFiles/.libs
+export VISUALDEPFL= ~/VisualDeb/src/VisualDebFiles/.libs

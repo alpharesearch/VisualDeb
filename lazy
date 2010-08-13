@@ -1,0 +1,30 @@
+#!/bin/bash
+#Copyright (C) 2010  Markus Schulz GNU GPL
+selection=$1
+command[1]="; export VISUALDEPFL=~/VisualDeb/src/VisualDebFiles/.libs ; make check -j"
+command[2]="; make -j; cd src; export VISUALDEPFL=~/VisualDeb/src/VisualDebFiles/.libs ;  ./visualdeb; cd .."
+command[3]=""
+command[4]=""
+command[5]=""
+command[6]=""
+command[7]="; make maintainer-clean"
+command[8]="; make clean; ./autogen.sh ; ./configure; make -j"
+command[9]="; make maintainer-clean; ./autogen.sh; ./configure; make -j; make; make check -j"
+command[0]="; git clean -dfx"
+command[10]="; echo change read -n1 to -n2"
+
+if [ $# == 0 ] ; then
+	for i in {0..10}
+	do
+	   echo " $i ${command[$i]}"
+	done
+	echo " a ; abort"
+    	read -n1 selection
+fi
+    echo " "
+    case $selection in
+   [0-99]* ) echo "${command[$selection]}"; eval echo "${command[$selection]}" ;;
+        a ) exit ;;
+        * ) exit ;;
+    esac
+exit 0

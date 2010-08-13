@@ -22,7 +22,7 @@
  **/
 
 using GLib;
-
+using VisualDebUtilities;
 
 namespace VisualDebFiles
 {
@@ -34,6 +34,19 @@ namespace VisualDebFiles
 			stdout.printf ("VisualDebFiles.Control TEST OK\n");
 			return true;
 		}
+		
+		public DebianDocu DebianDocuUsed
+		{
+			get
+			{
+				return m_DebianDocuUsed;
+			}
+			set
+			{
+				m_DebianDocuUsed = value;
+			}
+		}
+		private DebianDocu m_DebianDocuUsed;
 	}
 
 }  // end of namespace VisualDebFiles

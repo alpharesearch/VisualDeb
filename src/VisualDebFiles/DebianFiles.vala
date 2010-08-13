@@ -23,37 +23,17 @@
 
 using GLib;
 
-//using VisualDebUtilities;
-
 namespace VisualDebFiles
 {
 
 	public class DebianFiles : Object
 	{
-
-		//region Compositions
-/*
-		public DebianDocu DenianDocuUsed
-		{
-			get
-			{
-				return m_DenianDocuUsed;
-			}
-			set
-			{
-				m_DenianDocuUsed = value;
-			}
-		}
-		private DebianDocu m_DenianDocuUsed;
-*/
-		//endregion
 		
 		public virtual bool Test_Function ()
 		{
 			stdout.printf ("VisualDebFiles.DebianFiles TEST OK\n");
 			return true;
 		}
-
 	}
 
 }  // end of namespace VisualDebFiles
