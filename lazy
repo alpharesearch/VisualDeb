@@ -3,7 +3,7 @@
 selection=$1
 command[1]="; export VISUALDEPFL=~/VisualDeb/src/VisualDebFiles/.libs ; make check -j"
 command[2]="; make -j; cd src; export VISUALDEPFL=~/VisualDeb/src/VisualDebFiles/.libs ;  ./visualdeb; cd .."
-command[3]=""
+command[3]="; export VISUALDEPFL=~/VisualDeb/src/VisualDebFiles/.libs ; make distcheck -j"
 command[4]=""
 command[5]=""
 command[6]=""

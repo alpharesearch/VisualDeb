@@ -7,12 +7,6 @@ AM_CPPFLAGS = \
 	$(NULL)
 
 BUILT_SOURCES = DebianFiles.vapi
-
-controlincludedir = $(includedir)
-
-controlinclude_HEADERS = \
-	DebianFiles.h \
-	$(NULL)
 	
 DebianFiles.vapi : $(libdebianfiles_la_VALASOURCES)
 	$(VALA_V)$(VALAC) $(COVERAGE_VALAFLAGS) $(VALAFLAGS) -C -H DebianFiles.h --library DebianFiles DebianFiles.vala$^
@@ -20,6 +14,8 @@ DebianFiles.vapi : $(libdebianfiles_la_VALASOURCES)
 
 EXTRA_DIST = \
 	 DebianFiles.c \
+	 DebianFiles.h \
+	 DebianFiles.vapi \
 	$(NULL)
 	
 CLEANFILES = \
@@ -43,7 +39,7 @@ lib_LTLIBRARIES = \
 	
 libcontrol_la_SOURCES = \
 	Control.vala \
-	../VisualDebUtilities/DebianDocu.vala \
+	DebianDocu.vala \
 	DebianFiles.vapi \
 	$(NULL)
 
